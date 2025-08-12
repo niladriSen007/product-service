@@ -1,5 +1,6 @@
 package com.niladri.product_service.entity;
 
+import com.niladri.product_service.converter.ColorConverter;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -10,6 +11,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "products", uniqueConstraints = @UniqueConstraint(
+        columnNames = {
+                "prod_title",
+                "prod_category_id"
+        }
+))
 public class Product extends BaseEntity {
 
     private String image_url;
@@ -17,7 +24,7 @@ public class Product extends BaseEntity {
     @Column(name = "prod_title", nullable = false, unique = true)
     private String title;
     @Column(name = "prod_color", nullable = false)
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = ColorConverter.class)
     private COLORS color;
     @Column(name = "prod_price", nullable = false)
     private Float price;

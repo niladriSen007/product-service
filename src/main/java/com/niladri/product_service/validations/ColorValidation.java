@@ -15,7 +15,7 @@ public class ColorValidation implements ConstraintValidator<ColorSchemaValidatio
         if(value == null || value.isEmpty())
             return false;
       try {
-          COLORS color = COLORS.valueOf(value.toUpperCase());
+          COLORS color = COLORS.valueOf(value);
           return true;
       }catch (IllegalArgumentException e){
           return false;

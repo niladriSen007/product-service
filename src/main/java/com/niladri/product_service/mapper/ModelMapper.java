@@ -39,7 +39,7 @@ public class ModelMapper {
                 .build();
     }
 
-    public static CategoryResponseDto mapToCategoryDto(Category category) {
+    public static CategoryResponseDto mapToCategoryResponseDto(Category category) {
         return CategoryResponseDto.builder()
                 .name(category.getName())
                 .build();

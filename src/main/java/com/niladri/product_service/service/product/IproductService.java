@@ -8,4 +8,6 @@ import java.util.List;
 public interface IproductService {
     List<ProductResponseDto> getAllProducts();
     ProductResponseDto addProduct(ProductDto product);
+    ProductResponseDto getProductById(Long productId);
+    ProductResponseDto updateProduct(Long productId, ProductDto product);
 }
